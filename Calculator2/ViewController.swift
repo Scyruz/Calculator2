@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var operation = ""
     var result = 0
     var userInput = ""
+    var sumValue = 0
+    var sValue = ""
     
     @IBOutlet weak var displayLabel: UILabel!
     override func viewDidLoad() {
@@ -23,9 +25,13 @@ class ViewController: UIViewController {
     
     @IBAction func sumButton(_ sender: Any)
     {
+        
         operation = "+"
-        firstValue = userInput
+        sValue = userInput
+        sumValue += Int(sValue)!
+        firstValue = String(sumValue)
         userInput = ""
+        displayLabel.text = firstValue
     }
     @IBAction func resultButton(_ sender: Any)
     {
@@ -39,6 +45,7 @@ class ViewController: UIViewController {
             result = firstInput + secondInput
             displayLabel.text = String(result)
         }
+        sumValue = 0
     }
     @IBAction func clearButton(_ sender: Any)
     {
